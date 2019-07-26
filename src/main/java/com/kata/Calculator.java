@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 public class Calculator {
 
     private String numbers;
-    private String regex = "[\\n|,]";
-    private static Pattern pattern = Pattern.compile("\\/\\/(;)\\\\n(.*)");
+    private String delimiter = "[\\n|,]";
+    private static final Pattern DELIMITER_PATTERN = Pattern.compile("\\/\\/(;)\\\\n(.*)");
 
     public Calculator(String numbers) {
         this.numbers = numbers;
@@ -16,11 +16,11 @@ public class Calculator {
         }
     }
 
-    public int Add() {
+    public int add() {
         if("".equals(numbers)){
             return 0;
         }
-        String [] number = this.numbers.split(this.regex);
+        String [] number = this.numbers.split(this.delimiter);
         int sum = 0;
         for(int i=0; i<number.length; i++){
             sum += Integer.parseInt(number[i]);
@@ -29,10 +29,10 @@ public class Calculator {
     }
 
     private void setDelimiterAndNumbers() {
-            Matcher matcher = pattern.matcher(this.numbers);
+            Matcher matcher = DELIMITER_PATTERN.matcher(this.numbers);
             if(matcher.matches())
             {
-                this.regex = matcher.group(1);
+                this.delimiter = matcher.group(1);
                 this.numbers = matcher.group(2);
             }
         }

@@ -1,16 +1,17 @@
 import com.kata.Calculator
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class CalculatorSpec extends Specification {
 
+    @Unroll
+    def "API to test calculator addition method"(){
 
-    def "API to test calculator ADD method"(){
-
-        given : "A String containing comma separated numbers"
+        given : "A String containing comma separated numbers, Calculator object"
                 Calculator calculator = new Calculator(numbers)
         when  : "Add method of calculator class is called"
-                int sum = calculator.Add()
-        then  : "It will return their sum"
+                int sum = calculator.add()
+        then  : "It will return their sum based on separator provider"
                 sum == result
         where :
 
