@@ -14,10 +14,11 @@ class CalculatorSpec extends Specification {
                 sum == result
         where :
 
-              numbers  ||  result
-                "1,2"  ||   3
-                ""     ||   0
-                "5,7"  ||   12
+              numbers       ||  result
+                "1,2"       ||   3
+                ""          ||   0
+                "5,7"       ||   12
+                "11,5,7"    ||   23
     }
 
 }
