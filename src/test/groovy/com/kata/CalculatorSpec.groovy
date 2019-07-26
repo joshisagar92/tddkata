@@ -1,4 +1,5 @@
-import com.kata.Calculator
+package com.kata
+
 import spock.lang.Specification
 import spock.lang.Unroll
 
